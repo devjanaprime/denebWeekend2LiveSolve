@@ -5,7 +5,7 @@ var bodyParser = require( 'body-parser' );
 
 // global
 var port = 7237;
-
+var calcHistory = [];
 // uses
 app.use( bodyParser.urlencoded( {extended: true } ) );
 app.use(  express.static( 'server/public' ) );
@@ -30,8 +30,18 @@ app.post( '/calculate', function( req, res ){
     else if( req.body.type === 'Divide' ){
         answer = Number( req.body.x ) / Number( req.body.y );
     }
-    var objectToSend = {
+    // answer object for this calculation
+    var calculationObject = {
+        x: req.body.x,
+        y: req.body.y,
+        type: req.body.type,
         answer: answer
+    }; //end calculation object
+    // push into our array
+    calcHistory.push( calculationObject );
+    // send all to client
+    var objectToSend = {
+        history: calcHistory
     }; //end objectToSend
     res.send( objectToSend ); 
 }); //end post /calculate

@@ -10,13 +10,34 @@
 </head>
 <body>
     <h1>Deneb Weekend 2 Live Solve</h1>
-    <input type="text" id='xIn'>
-    <button class='typeButton' data-type='Add'>+</button>
-    <button class='typeButton' data-type='Subtract'>-</button>
-    <button class='typeButton' data-type='Multiply'>*</button>
-    <button class='typeButton' data-type='Divide'>/</button>
-    <input type="text" id='yIn'>
-    =
-    <span id='output'>outputWillGoHere</span>
+    <section id='input'>
+        <p id='currentNumber'></p>
+        <p>
+            <button class='numberButton' data-number='7'>7</button>
+            <button class='numberButton' data-number='8'>8</button>
+            <button class='numberButton' data-number='9'>9</button>
+            <button class='typeButton' data-type='Add'>+</button>
+        </p>
+        <p>
+            <button class='numberButton' data-number='4'>4</button>
+            <button class='numberButton' data-number='5'>5</button>
+            <button class='numberButton' data-number='6'>6</button>
+            <button class='typeButton' data-type='Subtract'>-</button>
+        </p>
+        <p>
+            <button class='numberButton' data-number='1'>1</button>
+            <button class='numberButton' data-number='2'>2</button>
+            <button class='numberButton' data-number='3'>3</button>
+            <button class='typeButton' data-type='Multiply'>*</button>
+        </p>
+        <p>
+            <button class='numberButton' data-number='.'>.</button>
+            <button class='numberButton' data-number='0'>0</button>
+            <button id='equalsButton'>=</button>
+            <button class='typeButton' data-type='Divide'>/</button>
+        </p>
+    </section>
+    <ul id='output'>
+    </ul>
 </body>
 </html>
