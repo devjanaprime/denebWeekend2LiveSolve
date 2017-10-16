@@ -16,3 +16,22 @@ app.listen( port, function(){
 }); //end server up
 
 // POST route
+app.post( '/calculate', function( req, res ){
+    console.log( 'in POST /calculate:', req.body );
+    if( req.body.type === 'Add' ){
+        var answer = Number( req.body.x ) + Number( req.body.y );
+    }
+    else if( req.body.type === 'Subtract' ){
+        answer = Number( req.body.x ) - Number( req.body.y );
+    }
+    else if( req.body.type === 'Multiply' ){
+        answer = Number( req.body.x ) * Number( req.body.y );
+    }
+    else if( req.body.type === 'Divide' ){
+        answer = Number( req.body.x ) / Number( req.body.y );
+    }
+    var objectToSend = {
+        answer: answer
+    }; //end objectToSend
+    res.send( objectToSend ); 
+}); //end post /calculate
